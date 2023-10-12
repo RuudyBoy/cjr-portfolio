@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/1f93e553eb.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Titillium+Web:ital,wght@1,700&display=swap" rel="stylesheet">
@@ -14,13 +15,13 @@
         <img class="logo-nav" src="./images/logoHvitXL.png" alt="logo for min brand">
         <ul>
             <li>
-                <a href="index.html">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
             </li>
             <li>
-                <a href="projects.html">My work</a>
+                <a class="current-page"  class="nav-link" href="projects.html">My work</a>
             </li>
             <li>
-                <a href="about.html">About me</a>
+                <a class="nav-link" href="about.html">About me</a>
             </li>
         </ul>
     </nav>
@@ -30,19 +31,19 @@
         <div class="projects-container">
             <div class="project">
                 <img src="./images/solarsmart.png" alt="Homepage of my Solar smart website">
-                <h3>Solar smart</h3>
+                <h3>Solar smart, high-fidelity prototype</h3>
                 <p class="project-text"> Solar smart is a website i created on my semester project. I have created a homepage, about page and a contact page.</p>
                 <button class="cta-button" href="">See prototype</button>
             </div>
             <div class="project">
                 <img src="./images/designsystem.png" alt="Image of a page from my design system for solar smart.">
-                <h3>Design system</h3>
+                <h3>Design system for Solar smart</h3>
                 <p class="project-text"> This is the design system i created for Solar smart. This project was a part of my semester project.</p>
                 <button class="cta-button" href="">See Design system</button>
             </div>
             <div class="project">
                 <img src="./images/NorSki.png" alt="Homepage of my Solar smart website">
-                <h3>NorSki</h3>
+                <h3>NorSki prototype</h3>
                 <p class="project-text"> NorSKi is a prototype i created for our assignment for Template design. This assignment contains a product page, dashboard page and a landing page.</p>
                 <button class="cta-button" href="">See prototype</button>
             </div>
@@ -52,11 +53,24 @@
             <img class="meg" src="./images/meg.png" alt="Bilde av meg">
         </div>
     </div>
-        <footer>
-            <div>
-                <h3>Ruuden98@gmail.com</h3>
-                <h4>+4794178705</h4>
-            </div>
-        </footer>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+            <h3>Contact information</h3>
+            <p><i class="fa-solid fa-envelope" style="color: #ffffff;"></i>Ruuden98@gmail.com</p>
+            <p><i class="fa-solid fa-phone" style="color: #ffffff;"></i>+4794178705</p>
+        </div>
+        <div class="footer-info">
+            <h3>Follow me on social media</h3>
+            <i class="fa-brands fa-linkedin" style="color: #eeeff2;"></i>
+            <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+            <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
+
+        </div>
+        <div class="footer-info">
+            <img class="logo-footer" src="./images/logoHvitXL.png" alt="logo in footer">
+        </div>
+        </div>
+    </footer>
 </body>
 </html>
