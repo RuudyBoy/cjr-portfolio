@@ -107,7 +107,7 @@ h2,h3 {
 
 
   .meg {
-    width: 100%;
+    width: 70%;
     margin: 0px auto;
   }
 
@@ -223,7 +223,7 @@ h2,h3 {
     object-fit: cover;
   }
 
-  .project button {
+  .project button{
     color: white;
     background: rgb(10,73,228);
     background: linear-gradient(30deg, rgba(10,73,228,1) 0%, rgba(82,83,221,1) 65%);
