@@ -234,6 +234,10 @@ h2,h3 {
     border: none;
   }
 
+  .project button a:hover {
+    text-decoration: underline;
+  }
+
   .project {
     display: flex;
     flex-direction: column;
