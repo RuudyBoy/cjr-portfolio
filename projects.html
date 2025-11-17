@@ -10,65 +10,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Titillium+Web:ital,wght@1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body class="bakgrunn">
-    <nav>
-        <img class="logo-nav" src="./images/logoHvitXL.png" alt="logo for min brand">
-        <ul>
-            <li>
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li>
-                <a class="current-page"  class="nav-link" href="projects.html">My work</a>
-            </li>
-            <li>
-                <a class="nav-link" href="about.html">About me</a>
-            </li>
-        </ul>
-    </nav>
-    <div class='container'>
-        <div class='project-info'>
-        <h1>My favourite projects</h1>
-        <div class="projects-container">
-            <div class="project">
-                <img src="./images/solarsmart.png" alt="Homepage of my Solar smart website">
-                <h3>Solar smart, high-fidelity prototype</h3>
-                <p class="project-text"> Solar smart is a website i created on my semester project. I have created a homepage, about page and a contact page.</p>
-                <button class="cta-button" href=""><a href="https://xd.adobe.com/view/84484515-9f19-4386-9717-d93df8608cc9-d11b/">See prototype</a></button>
+<body class="nybakgrunn-projects">
+    <header>
+        <div class="logo">PORTFOLIO</div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="projects.html" class="nav-link current-page">My work</a></li>
+                <li><a href="about.html" class="nav-link">About me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="hero-container">
+        <div class="hero-text">
+            <h1>THIS IS <span class="highlight-blue">MY</span> WORK</h1>
+            <div class="projects-list">
+                <div class="project-card">
+                    <img src="./images/solarsmart.png" alt="Homepage of my Solar smart website">
+                    <div class="project-card-info">
+                        <h3>Solar smart, high-fidelity prototype</h3>
+                        <p>Solar smart is a website i created on my semester project. I have created a homepage, about page and a contact page.</p>
+                        <a href="https://xd.adobe.com/view/84484515-9f19-4386-9717-d93df8608cc9-d11b/" target="_blank" class="project-link">See prototype</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="./images/designsystem.png" alt="Image of a page from my design system for solar smart.">
+                    <div class="project-card-info">
+                        <h3>Design system for Solar smart</h3>
+                        <p>This is the design system i created for Solar smart. This project was a part of my semester project.</p>
+                        <a href="https://xd.adobe.com/view/1070165f-19c2-4d75-9e07-e2733346d89d-4523/" target="_blank" class="project-link">See Design system</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="./images/NorSki.png" alt="Homepage of my Solar smart website">
+                    <div class="project-card-info">
+                        <h3>NorSki prototype</h3>
+                        <p>NorSKi is a prototype i created for our assignment for Template design. This assignment contains a product page, dashboard page and a landing page.</p>
+                        <a href="https://xd.adobe.com/view/875eed81-c13c-4a23-832b-a97d7813150d-d20d/" target="_blank" class="project-link">See prototype</a>
+                    </div>
+                </div>
             </div>
-            <div class="project">
-                <img src="./images/designsystem.png" alt="Image of a page from my design system for solar smart.">
-                <h3>Design system for Solar smart</h3>
-                <p class="project-text"> This is the design system i created for Solar smart. This project was a part of my semester project.</p>
-                <button class="cta-button" href="">  <a href="https://xd.adobe.com/view/1070165f-19c2-4d75-9e07-e2733346d89d-4523/"> See Design system </a></button>
-            </div>
-            <div class="project">
-                <img src="./images/NorSki.png" alt="Homepage of my Solar smart website">
-                <h3>NorSki prototype</h3>
-                <p class="project-text"> NorSKi is a prototype i created for our assignment for Template design. This assignment contains a product page, dashboard page and a landing page.</p>
-                <button class="cta-button" href=""> <a href="https://xd.adobe.com/view/875eed81-c13c-4a23-832b-a97d7813150d-d20d/">See prototype</a></button>
-            </div>
         </div>
-        </div>
-        <div class='image'>
-            <img class="meg" src="./images/meg-prosjekt.png" alt="Bilde av meg">
-        </div>
-    </div>
-    <footer>
-        <div class="footer-container">
-            <div class="footer-info">
-            <h3>Contact information</h3>
-            <p><i class="fa-solid fa-envelope" style="color: #ffffff;"></i>Ruuden98@gmail.com</p>
-            <p><i class="fa-solid fa-phone" style="color: #ffffff;"></i>+4794178705</p>
-        </div>
-        <div class="footer-info">
-            <h3>Follow me on social media</h3>
-            <a href="https://www.instagram.com/ruuden98"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
-            <a href="https://www.facebook.com/christian.ruud.39"><i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
-        </div>
-        <div class="footer-info">
-            <img class="logo-footer" src="./images/logoHvitXL.png" alt="logo in footer">
-        </div>
-        </div>
-    </footer>
+    </main>
 </body>
 </html>
