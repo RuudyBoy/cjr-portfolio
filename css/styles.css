@@ -58,13 +58,18 @@ html, body {
   .nav-link {
     text-decoration: none;
     color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
   }
 
   .nav-link.current-page, .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(37, 216, 255, 0.16);
+    color: #25D8FF;
+    transform: translateY(-1px);
   }
 
   .hero-container {
