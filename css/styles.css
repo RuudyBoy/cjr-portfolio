@@ -46,6 +46,19 @@ html, body {
     font-weight: bold;
     font-size: 1.5em;
     letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-image {
+    height: 55px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .logo-text {
+    display: inline;
   }
 
   .logo span {
@@ -163,6 +176,19 @@ html, body {
     align-items: flex-end;
     flex-direction: column;
     gap: 20px;
+    position: relative;
+  }
+
+  .hero-logo-large {
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
+    width: 280px;
+    height: auto;
+    opacity: 0.35;
+    filter: brightness(0) invert(1);
+    z-index: 1;
   }
 
   .scroll-indicator {
