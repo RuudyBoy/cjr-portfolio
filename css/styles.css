@@ -59,6 +59,7 @@ html, body {
 
   .logo-text {
     display: inline;
+    color: white;
   }
 
   .logo span {
@@ -182,9 +183,9 @@ html, body {
   .hero-logo-large {
     position: absolute;
     top: 50%;
-    right: 15%;
+    right: 8%;
     transform: translateY(-50%);
-    width: 280px;
+    width: 220px;
     height: auto;
     opacity: 0.35;
     filter: brightness(0) invert(1);
