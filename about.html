@@ -1,75 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About page</title>
+    <title>About Me | Christian J. Ruud</title>
+    <meta name="description" content="Portfolio of Christian Jørgensen Ruud - Developer, Designer and Athlete">
     <script src="https://kit.fontawesome.com/1f93e553eb.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/1f93e553eb.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Titillium+Web:ital,wght@1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body class="nybakgrunn-about">
-    <header>
-        <div class="logo">
-            <img src="./images/cr-logo.png" alt="CR Logo" class="logo-image">
-            <span class="logo-text">PORT<span>FOLIO</span></span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="projects.html" class="nav-link">My work</a></li>
-                <li><a href="about.html" class="nav-link current-page">About me</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="hero-container">
-        <div class="hero-text">
-            <h1>ABOUT <span class="highlight-blue">ME</span></h1>
-            <p>My name is Christian Jørgensen Ruud. I am from Askim and i am 26 years old. When i am not a coding or designing i am usally playing beachvolleyball some warm place around the world. The last 3 years my life has been coding and designing or playing with a ball in a foreign country.</p>
-            <h2>My best skills:</h2>
-            <div class="skills-container">
-                <img class="icon" src="./images/icons8-adobe-xd-32.png" alt="Adobe XD icon">
-                <img class="icon" src="./images/adobe-illustrator-logo-free-png.webp" alt="Adobe Illustrator icon">
-                <i class="fa-brands fa-js"></i>
-                <i class="fa-brands fa-css3-alt"></i>
-                <i class="fa-brands fa-html5"></i>
-                <i class="fa-brands fa-github"></i>
-            </div>
-            <h2>Programs i have some experience with:</h2>
-            <div class="skills-container">
-                <i class="fa-brands fa-figma"></i>
-                <i class="fa-brands fa-bootstrap"></i>
-                <i class="fa-brands fa-node"></i>
-                <i class="fa-brands fa-react"></i>
-                <i class="fa-brands fa-sass"></i>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fa-solid fa-chevron-down"></i>
-        </div>
-    </main>
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Christian Jørgensen Ruud</h3>
-                <p>Developer, Designer and Athlete</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p><i class="fa-solid fa-phone"></i> +47 941 78 705</p>
-                <p><i class="fa-solid fa-envelope"></i>  ruuden98@gmail.com</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Me</h3>
-                <div class="footer-social">
-                    <a href="https://github.com/RuudyBoy" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.instagram.com/ruuden98" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+
+<body>
+    <div class="layout-wrapper">
+        <div class="content-side">
+            <header>
+                <div class="logo">
+                    <img src="./images/cr-logo.png" alt="CR Logo" class="logo-image">
+                    <div>PORT<span>FOLIO</span></div>
                 </div>
-            </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="projects.html" class="nav-link">My Work</a></li>
+                        <li><a href="about.html" class="nav-link current-page">About Me</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <h1 class="page-title">About<br><span>Me.</span></h1>
+
+                <p class="about-text">
+                    My name is Christian Jørgensen Ruud. I am from Askim and I am 26 years old. When I am not coding or
+                    designing, I am usually playing beach volleyball in some warm place around the world. The last 3
+                    years, my life has been coding and designing or playing with a ball in a foreign country.
+                </p>
+
+                <div class="skills-wrapper">
+                    <h2>Best Skills</h2>
+                    <div class="skill-list">
+                        <div class="skill-tag" title="Adobe XD">
+                            <img src="./images/icons8-adobe-xd-32.png" alt="Adobe XD"> Adobe XD
+                        </div>
+                        <div class="skill-tag" title="Adobe Illustrator">
+                            <img src="./images/adobe-illustrator-logo-free-png.webp" alt="Adobe Illustrator">
+                            Illustrator
+                        </div>
+                        <div class="skill-tag" title="JavaScript">
+                            <i class="fa-brands fa-js"></i> JavaScript
+                        </div>
+                        <div class="skill-tag" title="CSS3">
+                            <i class="fa-brands fa-css3-alt"></i> CSS3
+                        </div>
+                        <div class="skill-tag" title="HTML5">
+                            <i class="fa-brands fa-html5"></i> HTML5
+                        </div>
+                        <div class="skill-tag" title="GitHub">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </div>
+                        <div class="skill-tag" title="Gemini">
+                            <i class="fa-solid fa-sparkles"></i> Gemini
+                        </div>
+                        <div class="skill-tag" title="Claude">
+                            <i class="fa-solid fa-brain"></i> Claude
+                        </div>
+                        <div class="skill-tag" title="Antigravity">
+                            <i class="fa-solid fa-rocket"></i> Antigravity
+                        </div>
+                        <div class="skill-tag" title="Claude Code">
+                            <i class="fa-solid fa-terminal"></i> Claude Code
+                        </div>
+                        <div class="skill-tag" title="MySQL">
+                            <i class="fa-solid fa-database"></i> MySQL
+                        </div>
+                        <div class="skill-tag" title="WordPress">
+                            <i class="fa-brands fa-wordpress"></i> WordPress
+                        </div>
+                        <div class="skill-tag" title="REST API">
+                            <i class="fa-solid fa-network-wired"></i> REST API
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-wrapper" style="margin-bottom: 2rem;">
+                    <h2>Experience With</h2>
+                    <div class="skill-list">
+                        <div class="skill-tag" title="Figma">
+                            <i class="fa-brands fa-figma"></i> Figma
+                        </div>
+                        <div class="skill-tag" title="Bootstrap">
+                            <i class="fa-brands fa-bootstrap"></i> Bootstrap
+                        </div>
+                        <div class="skill-tag" title="Node.js">
+                            <i class="fa-brands fa-node"></i> Node.js
+                        </div>
+                        <div class="skill-tag" title="React">
+                            <i class="fa-brands fa-react"></i> React
+                        </div>
+                        <div class="skill-tag" title="Sass">
+                            <i class="fa-brands fa-sass"></i> Sass
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer>
+                <div class="contact-info">
+                    <p><i class="fa-solid fa-phone"></i> +47 941 78 705</p>
+                    <p><i class="fa-solid fa-envelope"></i> ruuden98@gmail.com</p>
+                </div>
+                <div class="socials">
+                    <a href="https://github.com/RuudyBoy" target="_blank" aria-label="GitHub"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/ruuden98" target="_blank" aria-label="Instagram"><i
+                            class="fa-brands fa-instagram"></i></a>
+                </div>
+            </footer>
         </div>
-    </footer>
+
+        <div class="image-side">
+            <img src="./images/Portfolio%202025.png" alt="Christian pointing">
+        </div>
+    </div>
 </body>
+
 </html>
