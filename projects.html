@@ -9,88 +9,89 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <div class="layout-wrapper">
-        <div class="content-side">
-            <header>
-                <div class="logo">
-                    <img src="./images/cr-logo.png" alt="CR Logo" class="logo-image">
-                    <div>PORT<span>FOLIO</span></div>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="projects.html" class="nav-link current-page">My Work</a></li>
-                        <li><a href="about.html" class="nav-link">About Me</a></li>
-                    </ul>
-                </nav>
-            </header>
-
-            <main>
-                <h1 class="page-title">Selected<br><span>Works.</span></h1>
-                <p class="page-description">A showcase of my recent projects and experiments</p>
-
-                <div class="projects-stack">
-                    <div class="project-row">
-                        <img src="./images/solarsmart.png" alt="Homepage of my Solar smart website">
-                        <div class="project-details">
-                            <h3>Solar Smart Prototype</h3>
-                            <p>Solar smart is a website I created on my semester project. I have created a homepage, about page and a contact page.</p>
-                            <a href="https://xd.adobe.com/view/84484515-9f19-4386-9717-d93df8608cc9-d11b/" target="_blank" class="project-link">
-                                See Prototype <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project-row">
-                        <img src="./images/designsystem.png" alt="Image of a page from my design system for solar smart.">
-                        <div class="project-details">
-                            <h3>Solar Smart Design System</h3>
-                            <p>This is the design system I created for Solar smart. This project was a part of my semester project.</p>
-                            <a href="https://xd.adobe.com/view/1070165f-19c2-4d75-9e07-e2733346d89d-4523/" target="_blank" class="project-link">
-                                See Design System <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project-row">
-                        <img src="./images/NorSki.png" alt="Homepage of my NorSki website">
-                        <div class="project-details">
-                            <h3>NorSki Prototype</h3>
-                            <p>NorSKi is a prototype I created for our assignment for Template design. This assignment contains a product page, dashboard page and a landing page.</p>
-                            <a href="https://xd.adobe.com/view/875eed81-c13c-4a23-832b-a97d7813150d-d20d/" target="_blank" class="project-link">
-                                See Prototype <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project-row">
-                        <img src="./images/holidaze.png" alt="Homepage of Holidaze website">
-                        <div class="project-details">
-                            <h3>Holidaze</h3>
-                            <p>Project Exam in Frontend. Created with React and a custom API database. The API has been discontinued, so I have linked the github repo.</p>
-                            <a href="https://github.com/RuudyBoy/project-exam-2" target="_blank" class="project-link">
-                                See Github Repo <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </main>
-
-            <footer>
-                <div class="contact-info">
-                    <p><i class="fa-solid fa-phone"></i> +47 941 78 705</p>
-                    <p><i class="fa-solid fa-envelope"></i> ruuden98@gmail.com</p>
-                </div>
-                <div class="socials">
-                    <a href="https://github.com/RuudyBoy" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.instagram.com/ruuden98" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </footer>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="./images/cr-logo.png" alt="CR Logo">
+            <div>PORTFOLIO</div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="projects.html" class="current-page">portfolio</a></li>
+                <li><a href="about.html">about</a></li>
+            </ul>
+        </nav>
+        <div class="header-socials">
+            <a href="https://github.com/RuudyBoy" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/ruuden98" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         </div>
-        
-        <div class="image-side">
-            <img src="./images/meg-prosjekt.png" alt="Christian Jørgensen Ruud">
+    </header>
+
+    <main class="page-container">
+        <div class="page-header">
+            <h1>Selected Works.</h1>
+            <p>A showcase of my recent projects and experiments</p>
         </div>
-    </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="./images/solarsmart.png" alt="Homepage of my Solar smart website" class="project-image">
+                <div class="project-info">
+                    <h3>Solar Smart Prototype</h3>
+                    <p>Solar smart is a website I created on my semester project. I have created a homepage, about page and a contact page.</p>
+                    <a href="https://xd.adobe.com/view/84484515-9f19-4386-9717-d93df8608cc9-d11b/" target="_blank" class="project-link">
+                        See Prototype <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="./images/designsystem.png" alt="Image of a page from my design system for solar smart." class="project-image">
+                <div class="project-info">
+                    <h3>Solar Smart Design System</h3>
+                    <p>This is the design system I created for Solar smart. This project was a part of my semester project.</p>
+                    <a href="https://xd.adobe.com/view/1070165f-19c2-4d75-9e07-e2733346d89d-4523/" target="_blank" class="project-link">
+                        See Design System <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="./images/NorSki.png" alt="Homepage of my NorSki website" class="project-image">
+                <div class="project-info">
+                    <h3>NorSki Prototype</h3>
+                    <p>NorSKi is a prototype I created for our assignment for Template design. This assignment contains a product page, dashboard page and a landing page.</p>
+                    <a href="https://xd.adobe.com/view/875eed81-c13c-4a23-832b-a97d7813150d-d20d/" target="_blank" class="project-link">
+                        See Prototype <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="./images/holidaze.png" alt="Homepage of Holidaze website" class="project-image">
+                <div class="project-info">
+                    <h3>Holidaze</h3>
+                    <p>Project Exam in Frontend. Created with React and a custom API database. The API has been discontinued, so I have linked the github repo.</p>
+                    <a href="https://github.com/RuudyBoy/project-exam-2" target="_blank" class="project-link">
+                        See Github Repo <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <p><i class="fa-solid fa-phone"></i> +47 941 78 705</p>
+                <p><i class="fa-solid fa-envelope"></i> ruuden98@gmail.com</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://github.com/RuudyBoy" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/ruuden98" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,119 +8,101 @@
     <script src="https://kit.fontawesome.com/1f93e553eb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
-
 <body>
-    <div class="layout-wrapper">
-        <div class="content-side">
-            <header>
-                <div class="logo">
-                    <img src="./images/cr-logo.png" alt="CR Logo" class="logo-image">
-                    <div>PORT<span>FOLIO</span></div>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="./images/cr-logo.png" alt="CR Logo">
+            <div>PORTFOLIO</div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="projects.html">portfolio</a></li>
+                <li><a href="about.html" class="current-page">about</a></li>
+            </ul>
+        </nav>
+        <div class="header-socials">
+            <a href="https://github.com/RuudyBoy" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/ruuden98" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </header>
+
+    <main class="page-container">
+        <div class="page-header">
+            <h1>About Me.</h1>
+            <p>Developer, Designer and Athlete from Norway.</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text-col">
+                <div class="about-section">
+                    <h3>Bakgrunn</h3>
+                    <p>Jeg heter Christian Jørgensen Ruud og er en 27 år gammel kar fra Askim, bosatt i Oslo. De siste årene har jeg kombinert spennende studier ved Noroff med en fulltidssatsing innen sandvolleyball.</p>
                 </div>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="projects.html" class="nav-link">My Work</a></li>
-                        <li><a href="about.html" class="nav-link current-page">About Me</a></li>
+
+                <div class="about-section">
+                    <h3>Idrett & Ledelse</h3>
+                    <p>Jeg har oppnådd svært gode resultater fra satsingen og er blant de beste i landet. Ved siden av min egen karriere har jeg jobbet som sandvolleyballtrener.</p>
+                    <p>Som hovedtrener på ABOX Greverud og trener for Oslo Sandvolleyballklubb på sommeren, har jeg gjennom en årrekke tilegnet meg verdifulle egenskaper:</p>
+                    <ul class="about-list">
+                        <li><i class="fa-solid fa-check"></i> Godt samarbeid</li>
+                        <li><i class="fa-solid fa-check"></i> Ledelse og ansvar</li>
+                        <li><i class="fa-solid fa-check"></i> Tydelig kommunikasjon</li>
                     </ul>
-                </nav>
-            </header>
+                </div>
 
-            <main>
-                <h1 class="page-title">About<br><span>Me.</span></h1>
+                <div class="about-section">
+                    <h3>Interesser</h3>
+                    <p>Utenom koding og design går mye av fritiden min til trening, fotball og gaming.</p>
+                </div>
+            </div>
 
-                <p class="about-text">
-                    My name is Christian Jørgensen Ruud. I am from Askim and I am 26 years old. When I am not coding or
-                    designing, I am usually playing beach volleyball in some warm place around the world. The last 3
-                    years, my life has been coding and designing or playing with a ball in a foreign country.
-                </p>
-
-                <div class="skills-wrapper">
-                    <h2>Best Skills</h2>
-                    <div class="skill-list">
-                        <div class="skill-tag" title="Adobe XD">
-                            <img src="./images/icons8-adobe-xd-32.png" alt="Adobe XD"> Adobe XD
-                        </div>
-                        <div class="skill-tag" title="Adobe Illustrator">
-                            <img src="./images/adobe-illustrator-logo-free-png.webp" alt="Adobe Illustrator">
-                            Illustrator
-                        </div>
-                        <div class="skill-tag" title="JavaScript">
-                            <i class="fa-brands fa-js"></i> JavaScript
-                        </div>
-                        <div class="skill-tag" title="CSS3">
-                            <i class="fa-brands fa-css3-alt"></i> CSS3
-                        </div>
-                        <div class="skill-tag" title="HTML5">
-                            <i class="fa-brands fa-html5"></i> HTML5
-                        </div>
-                        <div class="skill-tag" title="GitHub">
-                            <i class="fa-brands fa-github"></i> GitHub
-                        </div>
-                        <div class="skill-tag" title="Gemini">
-                            <i class="fa-solid fa-sparkles"></i> Gemini
-                        </div>
-                        <div class="skill-tag" title="Claude">
-                            <i class="fa-solid fa-brain"></i> Claude
-                        </div>
-                        <div class="skill-tag" title="Antigravity">
-                            <i class="fa-solid fa-rocket"></i> Antigravity
-                        </div>
-                        <div class="skill-tag" title="Claude Code">
-                            <i class="fa-solid fa-terminal"></i> Claude Code
-                        </div>
-                        <div class="skill-tag" title="MySQL">
-                            <i class="fa-solid fa-database"></i> MySQL
-                        </div>
-                        <div class="skill-tag" title="WordPress">
-                            <i class="fa-brands fa-wordpress"></i> WordPress
-                        </div>
-                        <div class="skill-tag" title="REST API">
-                            <i class="fa-solid fa-network-wired"></i> REST API
-                        </div>
+            <div class="about-skills-col">
+                <div class="skills-group">
+                    <h3>Best Skills</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag" title="Adobe XD"><img src="./images/icons8-adobe-xd-32.png" alt="Adobe XD"> Adobe XD</div>
+                        <div class="skill-tag" title="Adobe Illustrator"><img src="./images/adobe-illustrator-logo-free-png.webp" alt="Adobe Illustrator"> Illustrator</div>
+                        <div class="skill-tag" title="JavaScript"><i class="fa-brands fa-js"></i> JavaScript</div>
+                        <div class="skill-tag" title="CSS3"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+                        <div class="skill-tag" title="HTML5"><i class="fa-brands fa-html5"></i> HTML5</div>
+                        <div class="skill-tag" title="GitHub"><i class="fa-brands fa-github"></i> GitHub</div>
+                        <div class="skill-tag" title="Gemini"><i class="fa-solid fa-sparkles"></i> Gemini</div>
+                        <div class="skill-tag" title="Claude"><i class="fa-solid fa-brain"></i> Claude</div>
+                        <div class="skill-tag" title="Antigravity"><i class="fa-solid fa-rocket"></i> Antigravity</div>
+                        <div class="skill-tag" title="Claude Code"><i class="fa-solid fa-terminal"></i> Claude Code</div>
+                        <div class="skill-tag" title="MySQL"><i class="fa-solid fa-database"></i> MySQL</div>
+                        <div class="skill-tag" title="WordPress"><i class="fa-brands fa-wordpress"></i> WordPress</div>
+                        <div class="skill-tag" title="REST API"><i class="fa-solid fa-network-wired"></i> REST API</div>
                     </div>
                 </div>
 
-                <div class="skills-wrapper" style="margin-bottom: 2rem;">
-                    <h2>Experience With</h2>
-                    <div class="skill-list">
-                        <div class="skill-tag" title="Figma">
-                            <i class="fa-brands fa-figma"></i> Figma
-                        </div>
-                        <div class="skill-tag" title="Bootstrap">
-                            <i class="fa-brands fa-bootstrap"></i> Bootstrap
-                        </div>
-                        <div class="skill-tag" title="Node.js">
-                            <i class="fa-brands fa-node"></i> Node.js
-                        </div>
-                        <div class="skill-tag" title="React">
-                            <i class="fa-brands fa-react"></i> React
-                        </div>
-                        <div class="skill-tag" title="Sass">
-                            <i class="fa-brands fa-sass"></i> Sass
-                        </div>
+                <div class="skills-group">
+                    <h3>Experience With</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag" title="Figma"><i class="fa-brands fa-figma"></i> Figma</div>
+                        <div class="skill-tag" title="Bootstrap"><i class="fa-brands fa-bootstrap"></i> Bootstrap</div>
+                        <div class="skill-tag" title="Node.js"><i class="fa-brands fa-node"></i> Node.js</div>
+                        <div class="skill-tag" title="React"><i class="fa-brands fa-react"></i> React</div>
+                        <div class="skill-tag" title="Sass"><i class="fa-brands fa-sass"></i> Sass</div>
                     </div>
                 </div>
-            </main>
-
-            <footer>
-                <div class="contact-info">
-                    <p><i class="fa-solid fa-phone"></i> +47 941 78 705</p>
-                    <p><i class="fa-solid fa-envelope"></i> ruuden98@gmail.com</p>
-                </div>
-                <div class="socials">
-                    <a href="https://github.com/RuudyBoy" target="_blank" aria-label="GitHub"><i
-                            class="fa-brands fa-github"></i></a>
-                    <a href="https://www.instagram.com/ruuden98" target="_blank" aria-label="Instagram"><i
-                            class="fa-brands fa-instagram"></i></a>
-                </div>
-            </footer>
+            </div>
         </div>
+    </main>
 
-        <div class="image-side">
-            <img src="./images/Portfolio%202025.png" alt="Christian pointing">
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <p><i class="fa-solid fa-phone"></i> +47 941 78 705</p>
+                <p><i class="fa-solid fa-envelope"></i> ruuden98@gmail.com</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://github.com/RuudyBoy" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/ruuden98" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
         </div>
-    </div>
+    </footer>
 </body>
-
 </html>
