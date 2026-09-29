@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spikedunk - Case Study | Christian J. Ruud</title>
+    <meta name="description" content="Case Study: Spikedunk - Et komplett økosystem for sandvolleyball.">
+    <script src="https://kit.fontawesome.com/1f93e553eb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        .case-study-hero { margin-bottom: 3rem; }
+        .case-study-content { max-width: 900px; margin: 0 auto; font-size: 1.1rem; color: var(--text-color); }
+        .case-study-content h2 { font-size: 2rem; font-weight: 800; margin: 2.5rem 0 1rem; color: var(--header-text); border-bottom: 1px solid var(--light-border); padding-bottom: 0.5rem; }
+        .case-study-content h3 { font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 0.8rem; color: var(--accent-color); }
+        .case-study-content p { margin-bottom: 1.5rem; line-height: 1.8; }
+        .case-study-content ul { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        .case-study-content li { margin-bottom: 0.5rem; }
+        .tech-stack-tags { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: center; }
+        .code-snippet-placeholder { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--light-border); padding: 2rem; border-radius: 8px; text-align: left; margin-bottom: 1.5rem; color: #a5b4fc; font-family: var(--font-code); font-size: 0.95rem; overflow-x: auto; }
+        .hobby-badge { background-color: rgba(245, 87, 108, 0.2); border: 1px solid rgba(245, 87, 108, 0.5); color: #fca5a5; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-top: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="./images/cr-logo.png" alt="CR Logo">
+            <div>PORTFOLIO</div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="projects.html" class="current-page">portfolio</a></li>
+                <li><a href="about.html">about</a></li>
+            </ul>
+        </nav>
+        <div class="header-socials">
+            <a href="https://github.com/RuudyBoy" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/ruuden98" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </header>
+
+    <main class="page-container">
+        <div class="page-header case-study-hero">
+            <h1>Spikedunk</h1>
+            <p>Case Study: Et komplett økosystem for sandvolleyball</p>
+            <div class="hobby-badge">Uoffisielt Hobbyprosjekt</div>
+        </div>
+
+        <div class="tech-stack-tags">
+            <span class="skill-tag">Flutter</span>
+            <span class="skill-tag">Dart</span>
+            <span class="skill-tag">Google Firebase</span>
+            <span class="skill-tag">Firestore</span>
+            <span class="skill-tag">Cloud Functions</span>
+            <span class="skill-tag">Google Antigravity</span>
+            <span class="skill-tag">Gemini AI</span>
+        </div>
+
+        <div class="case-study-content">
+            <h2>Prosjektet & Problemet</h2>
+            <p>Spikedunk er et hobbyprosjekt bygget for norsk sandvolleyball. Prosjektet er per i dag uoffisielt og appene er ikke publisert i app-butikkene, men konseptet er utviklet for å vise hvordan sporten kan gjøres enda proffere enn i dag. Tidligere har organisering av slike turneringer vært preget av manuelle prosesser: papirbaserte påmeldinger, regneark for kampoppsett, og fysiske resultattavler som må oppdateres for hånd. Dette prosjektet utforsker hvordan vi kan digitalisere og automatisere disse prosessene. Ved å gi bedre tilgjengelighet til å se stats, live-score og oppsett, demonstrerer appene hvordan man kan fjerne friksjonen for både arrangører, spillere og publikum.</p>
+
+            <h2>Arkitektur & Teknologivalg</h2>
+            <p>For å bygge et skalerbart og fremtidsrettet system, falt valget på <strong>Flutter og Dart</strong> for frontend og <strong>Google Firebase</strong> (Auth, Firestore, Cloud Functions) som backend.</p>
+            <p><strong>Hvorfor Flutter?</strong> Rammeverket lar oss skrive én felles kodebase som kan kompileres nativt for både iOS, Android og Web. Dette sparer enormt med utviklingstid uten å gå på bekostning av ytelse eller brukeropplevelse.</p>
+            
+            <p><strong>Agentic Coding & Google-økosystemet:</strong> En sentral del av utviklingsmetodikken har vært bruken av <strong>Google Antigravity</strong> (drevet av <strong>Gemini</strong>) for avansert "agentic coding". Fordi hele stacken – fra Firebase og Flutter, til Gemini og Antigravity – er bygget av Google, fungerer de eksepsjonelt bra sammen. AI-agentene har en utrolig dyp, innebygd forståelse for hvordan Firebase og Flutter bør sys sammen, noe som har gjort at komplekse integrasjoner og server-side logikk har gått langt raskere enn ved tradisjonell programmering.</p>
+            
+            <h3>Hvorfor tre separate applikasjoner?</h3>
+            <p>I stedet for å bygge én gigantisk applikasjon, ble systemet delt opp i tre spesialiserte Flutter-apper som deler samme Firebase-backend:</p>
+            <ul>
+                <li><strong>Spiller-app:</strong> Spillerens portal for påmelding til turneringer, visning av kampoppsett, stats og resultater, med trygg og enkel innlogging via <strong>Google Sign-In</strong>.</li>
+                <li><strong>Admin-verktøy:</strong> Arrangørens verktøy for å opprette turneringer, generere brackets (sluttspill/puljer) og tildele kamper. Her benyttes også <strong>Firebase Cloud Functions (Node.js)</strong> for sikker server-side logikk.</li>
+                <li><strong>Livescore-tavle:</strong> En dedikert skjerm-app (tavle) som står ved banen for sanntidsvisning av poeng og kampstatus. Drevet av <strong>Firestore sine sanntids-listeners</strong>.</li>
+            </ul>
+            <p>Denne mikrotjeneste-inspirerte tilnærmingen på klient-siden gir flere arkitektoniske fordeler. Hver app har en spesifikk domenekontekst, noe som reduserer kompleksiteten i koden, minimerer app-størrelsen for sluttbrukerne, og tillater uavhengige oppdateringer av for eksempel livescore-tavlen uten å påvirke spiller-appen.</p>
+
+            <h2>Kjernefunksjonalitet</h2>
+            <p>Systemet lener seg tungt på avanserte funksjoner i Google Firebase for å levere en sømløs opplevelse:</p>
+            <ul>
+                <li><strong>Firestore Sanntidsdatabase for Livescore:</strong> Når en dommer eller funksjonær oppdaterer poengsummen i Admin-appen, lytter Livescore-appen ved banen og spiller-appene på Firestore-dokumentet. Endringene pushes umiddelbart over nettet med minimal forsinkelse.</li>
+                <li><strong>Sikker backend-logikk med Cloud Functions:</strong> Kritiske operasjoner, som generering av kampoppsett og kalkulering av avansement, utføres ikke på klienten. I stedet kaller appene Cloud Functions, som sikrer at turneringsreglene håndheves trygt på serveren.</li>
+                <li><strong>Sikkerhetsregler (Firebase Security Rules):</strong> Sikkerhet er bygget inn på databasenivå. Dette sikrer at kun turneringsadministratorer kan endre kampresultater, mens spillere kun har tilgang til sine egne data.</li>
+            </ul>
+
+            <h2>Problemløsning (Dypdykk)</h2>
+            <h3>Utfordring: Sanntidssynkronisering av poeng og tilstandshåndtering</h3>
+            <p>En av de største tekniske utfordringene var å sikre at tilstanden for en pågående kamp (poeng, sett, timeout) var 100 % synkronisert på tvers av dommerens enhet, livescore-skjermen og publikums telefoner, selv under dårlige nettverksforhold (for eksempel på en avsidesliggende strand).</p>
+            <p>For å løse dette implementerte jeg en hybrid tilstandshåndtering der kritisk state lagres i Firestore, mens optimistisk UI-oppdatering brukes på klienten (via Flutter sine state management-løsninger) for å gi umiddelbar feedback til dommeren. Ved konflikter eller nettverksbrudd sørger Firebase og Firestore sine sanntids-listeners for å resynkronisere klientens lokale tilstand mot "source of truth" i skyen.</p>
+            
+            <div class="code-snippet-placeholder">
+// Eksempel: Lytte til poengoppdateringer i sanntid med Flutter og Firestore
+StreamBuilder&lt;DocumentSnapshot&gt;(
+  stream: FirebaseFirestore.instance.collection('matches').doc(matchId).snapshots(),
+  builder: (context, snapshot) {
+    if (!snapshot.hasData) return CircularProgressIndicator();
+    
+    var matchData = snapshot.data!.data() as Map&lt;String, dynamic&gt;;
+    // Håndter oppdatering av live-score i appen
+    return ScoreBoardWidget(score: matchData['score']);
+  },
+)
+            </div>
+
+            <h2>Veien Videre og Læring</h2>
+            <p>Utviklingen av Spikedunk har gitt enorm innsikt i å bygge distribuerte systemer og håndtere komplekse datamodeller relatert til idrettsarrangementer. Den viktigste lærdommen var verdien av streng databasestrukturering tidlig i prosjektet og kraften i å utnytte Firebase Cloud Functions og Security Rules for å flytte sikkerhetslogikken ut av frontend. Selv om dette foreløpig er et uoffisielt hobbyprosjekt, viste valget av Flutter og oppdelingen i tre applikasjoner seg som en stor suksess for å levere et mer profesjonelt, brukervennlig og raskt produkt-konsept til volleyball-Norge.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <p><i class="fa-solid fa-phone"></i> +47 941 78 705</p>
+                <p><i class="fa-solid fa-envelope"></i> ruuden98@gmail.com</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://github.com/RuudyBoy" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/ruuden98" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
