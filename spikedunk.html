@@ -18,6 +18,9 @@
         .tech-stack-tags { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: center; }
         .code-snippet-placeholder { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--light-border); padding: 2rem; border-radius: 8px; text-align: left; margin-bottom: 1.5rem; color: #a5b4fc; font-family: var(--font-code); font-size: 0.95rem; overflow-x: auto; }
         .hobby-badge { background-color: rgba(245, 87, 108, 0.2); border: 1px solid rgba(245, 87, 108, 0.5); color: #fca5a5; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-top: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .spikedunk-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
+        .spikedunk-gallery img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid var(--light-border); transition: transform 0.3s ease; }
+        .spikedunk-gallery img:hover { transform: translateY(-5px); border-color: rgba(79, 172, 254, 0.5); }
     </style>
 </head>
 <body>
@@ -60,6 +63,13 @@
         <div class="case-study-content">
             <h2>Prosjektet & Problemet</h2>
             <p>Spikedunk er et hobbyprosjekt bygget for norsk sandvolleyball. Prosjektet er per i dag uoffisielt og appene er ikke publisert i app-butikkene, men konseptet er utviklet for å vise hvordan sporten kan gjøres enda proffere enn i dag. Tidligere har organisering av slike turneringer vært preget av manuelle prosesser: papirbaserte påmeldinger, regneark for kampoppsett, og fysiske resultattavler som må oppdateres for hånd. Dette prosjektet utforsker hvordan vi kan digitalisere og automatisere disse prosessene. Ved å gi bedre tilgjengelighet til å se stats, live-score og oppsett, demonstrerer appene hvordan man kan fjerne friksjonen for både arrangører, spillere og publikum.</p>
+
+            <div class="spikedunk-gallery">
+                <img src="./images/spikedunk-home.png" alt="Spikedunk Hjem">
+                <img src="./images/spikedunk-tourney.png" alt="Spikedunk Turnering">
+                <img src="./images/spikedunk-stats.png" alt="Spikedunk Statistikk">
+                <img src="./images/spikedunk-profile.png" alt="Spikedunk Spillerprofil">
+            </div>
 
             <h2>Arkitektur & Teknologivalg</h2>
             <p>For å bygge et skalerbart og fremtidsrettet system, falt valget på <strong>Flutter og Dart</strong> for frontend og <strong>Google Firebase</strong> (Auth, Firestore, Cloud Functions) som backend.</p>
