@@ -3,24 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spikedunk - Case Study | Christian J. Ruud</title>
-    <meta name="description" content="Case Study: Spikedunk - Et komplett økosystem for sandvolleyball.">
+    <title>Spikedunk | Christian J. Ruud</title>
+    <meta name="description" content="Spikedunk: tre Flutter-apper og én Firebase-database som tar en sandvolleyballturnering fra påmelding til resultat. Case study av Christian J. Ruud.">
     <script src="https://kit.fontawesome.com/1f93e553eb.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@1,700;1,800&family=Schibsted+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
     <style>
-        .case-study-hero { margin-bottom: 3rem; }
-        .case-study-content { max-width: 900px; margin: 0 auto; font-size: 1.1rem; color: var(--text-color); }
-        .case-study-content h2 { font-size: 2rem; font-weight: 800; margin: 2.5rem 0 1rem; color: var(--header-text); border-bottom: 1px solid var(--light-border); padding-bottom: 0.5rem; }
-        .case-study-content h3 { font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 0.8rem; color: var(--accent-color); }
-        .case-study-content p { margin-bottom: 1.5rem; line-height: 1.8; }
-        .case-study-content ul { margin-bottom: 1.5rem; padding-left: 1.5rem; }
-        .case-study-content li { margin-bottom: 0.5rem; }
-        .tech-stack-tags { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: center; }
-        .code-snippet-placeholder { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--light-border); padding: 2rem; border-radius: 8px; text-align: left; margin-bottom: 1.5rem; color: #a5b4fc; font-family: var(--font-code); font-size: 0.95rem; overflow-x: auto; }
-        .hobby-badge { background-color: rgba(245, 87, 108, 0.2); border: 1px solid rgba(245, 87, 108, 0.5); color: #fca5a5; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-top: 1rem; text-transform: uppercase; letter-spacing: 1px; }
-        .spikedunk-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
-        .spikedunk-gallery img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid var(--light-border); transition: transform 0.3s ease; }
-        .spikedunk-gallery img:hover { transform: translateY(-5px); border-color: rgba(79, 172, 254, 0.5); }
+        /* Tokens hentet fra Spikedunk-appens eget designsystem (lib/theme/app_colors.dart) */
+        .cs {
+            --night: #0E1626;
+            --night-2: #18233C;
+            --night-line: #283654;
+            --night-ink: #F4EEE2;
+            --night-ink-2: #A9B2C4;
+            --sand: #F4EADB;
+            --sand-2: #E7D7C0;
+            --ink: #0B1B33;
+            --ink-2: #566175;
+            --coral: #F1574A;
+            --coral-deep: #D8412F;
+            --display: 'Saira', 'Inter', sans-serif;
+            --body: 'Schibsted Grotesk', 'Inter', sans-serif;
+            --mono: 'IBM Plex Mono', 'Fira Code', monospace;
+            font-family: var(--body);
+            color: var(--night-ink);
+            font-size: 1.0625rem;
+            line-height: 1.65;
+        }
+
+        .cs-wrap { max-width: 1120px; margin: 0 auto; padding: 0 5%; }
+        .cs-text { max-width: 68ch; }
+        .cs-wrap.cs-text { max-width: 1120px; }
+        .cs-wrap.cs-text > * { max-width: 68ch; }
+        .cs-cols > .cs-code { align-self: start; }
+        .cs section { padding: 5.5rem 0; }
+        .cs section + section { border-top: 1px solid var(--night-line); }
+        .cs p { margin-bottom: 1.1rem; color: var(--night-ink-2); }
+        .cs p strong, .cs li strong { color: var(--night-ink); font-weight: 700; }
+        .cs a { color: var(--night-ink); text-decoration: underline; text-decoration-color: var(--coral); text-underline-offset: 3px; }
+        .cs a:hover { color: var(--coral); }
+        .cs code { font-family: var(--mono); font-size: 0.88em; background: var(--night-2); padding: 0.1em 0.35em; border-radius: 4px; color: var(--night-ink); }
+
+        .cs h1, .cs h2 {
+            font-family: var(--display);
+            font-style: italic;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            line-height: 1.02;
+            color: var(--night-ink);
+        }
+        .cs h2 { font-size: clamp(2rem, 4.2vw, 2.9rem); margin-bottom: 1.4rem; }
+        .cs h3 { font-family: var(--body); font-size: 1.25rem; font-weight: 700; margin: 2.2rem 0 0.6rem; color: var(--night-ink); }
+        .cs h2 + p.cs-lead { font-size: 1.2rem; color: var(--night-ink); }
+
+        /* Hero */
+        .cs-hero { padding: 4.5rem 0 5rem; }
+        .cs-hero .cs-wrap { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center; }
+        .cs-hero h1 { font-size: clamp(3.6rem, 9vw, 7rem); margin-bottom: 1.2rem; }
+        .cs-hero .cs-claim { font-size: 1.45rem; line-height: 1.35; color: var(--night-ink); max-width: 26ch; margin-bottom: 1.4rem; }
+        .cs-hero .cs-note { font-size: 0.95rem; color: var(--night-ink-2); max-width: 52ch; }
+        .cs-repos { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 2rem; }
+        .cs .cs-repo {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 0.7rem 1.1rem; border-radius: 10px;
+            background: var(--night-2); border: 1px solid var(--night-line);
+            color: var(--night-ink); text-decoration: none; font-weight: 500; font-size: 0.98rem;
+        }
+        .cs .cs-repo:hover { border-color: var(--coral); color: var(--night-ink); }
+        .cs .cs-repo:focus-visible, .cs a:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
+        .cs-repo i { font-size: 1.1rem; }
+        .cs-phone { justify-self: center; position: relative; }
+        .cs-phone img {
+            display: block; width: min(320px, 70vw); border-radius: 28px;
+            border: 6px solid var(--night-2); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.7);
+        }
+        .cs-facts { display: flex; flex-wrap: wrap; gap: 2.5rem; margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid var(--night-line); }
+        .cs-facts dt { font-size: 0.9rem; color: var(--night-ink-2); }
+        .cs-facts dd { font-family: var(--display); font-style: italic; font-weight: 800; font-size: 1.9rem; line-height: 1.1; color: var(--night-ink); }
+
+        /* Systemet */
+        .cs-arch { margin-top: 2.6rem; display: grid; gap: 0; }
+        .cs-arch-apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .cs-node { border: 1px solid var(--night-line); border-radius: 12px; padding: 1.1rem 1.2rem; background: var(--night); }
+        .cs-node b { display: block; font-size: 1.05rem; color: var(--night-ink); }
+        .cs-node span { font-size: 0.92rem; color: var(--night-ink-2); }
+        .cs-arch-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .cs-arch-links div { position: relative; height: 3.4rem; }
+        .cs-arch-links div::before { content: ""; position: absolute; left: 1.6rem; top: 0; bottom: 0; border-left: 1.5px solid var(--night-ink-2); }
+        .cs-arch-links span { position: absolute; left: 2.3rem; top: 50%; transform: translateY(-50%); font-size: 0.88rem; color: var(--night-ink-2); }
+        .cs-node.is-db { background: var(--sand); border-color: var(--sand); }
+        .cs-node.is-db b { color: var(--ink); }
+        .cs-node.is-db span { color: var(--ink-2); font-family: var(--mono); font-size: 0.84rem; }
+        .cs-arch-fn { display: grid; grid-template-columns: 1fr; justify-items: center; }
+        .cs-arch-fn .cs-arch-links { grid-template-columns: 1fr; width: 100%; max-width: 360px; }
+        .cs-arch-fn .cs-node { width: 100%; max-width: 360px; }
+
+        /* Appene */
+        .cs-apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 2.4rem; border-top: 1px solid var(--night-line); }
+        .cs-app { padding: 1.8rem 1.6rem 0.4rem 0; }
+        .cs-app + .cs-app { padding-left: 1.6rem; border-left: 1px solid var(--night-line); }
+        .cs-app h3 { margin-top: 0; font-family: var(--display); font-style: italic; font-weight: 800; font-size: 1.6rem; }
+        .cs-app .cs-who { font-size: 0.92rem; color: var(--coral); margin-bottom: 0.9rem; }
+        .cs-app ul { list-style: none; margin: 0 0 1.2rem; }
+        .cs-app li { padding: 0.35rem 0; color: var(--night-ink-2); font-size: 0.98rem; border-bottom: 1px solid var(--night-line); }
+        .cs-app .cs-meta { font-size: 0.88rem; color: var(--night-ink-2); }
+        .cs-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem; }
+        .cs-gallery figure { margin: 0; }
+        .cs-gallery img { width: 100%; display: block; border-radius: 16px; border: 4px solid var(--night-2); }
+        .cs-gallery figcaption { font-size: 0.85rem; color: var(--night-ink-2); margin-top: 0.5rem; }
+
+        /* Ett poeng blir til data: sandbåndet */
+        .cs .cs-sand { background: var(--sand); color: var(--ink); border-top: none; }
+        .cs .cs-sand + section { border-top: none; }
+        .cs-sand h2, .cs-sand h3 { color: var(--ink); }
+        .cs-sand p { color: var(--ink-2); }
+        .cs-sand p strong { color: var(--ink); }
+        .cs-sand code { background: var(--sand-2); color: var(--ink); }
+        .cs-flow { display: grid; grid-template-columns: 0.9fr 1.3fr 1fr; gap: 1.2rem; margin-top: 2.6rem; align-items: stretch; }
+        .cs-step { border-radius: 14px; padding: 1.4rem; position: relative; }
+        .cs-step h3 { margin: 0 0 0.9rem; font-size: 1.05rem; }
+        .cs-step-tap { background: var(--ink); color: var(--night-ink); }
+        .cs-step-tap h3 { color: var(--night-ink); }
+        .cs-tap-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+        .cs-tap-row span { font-size: 0.85rem; padding: 0.35rem 0.7rem; border-radius: 999px; border: 1px solid var(--night-line); color: var(--night-ink-2); }
+        .cs-tap-row span.on { background: var(--coral); border-color: var(--coral); color: #fff; font-weight: 700; }
+        .cs-step-tap p { color: var(--night-ink-2); font-size: 0.95rem; margin: 0; }
+        .cs-step-doc { background: #fff; border: 1px solid var(--sand-2); }
+        .cs-step-doc pre { font-family: var(--mono); font-size: 0.82rem; line-height: 1.6; color: var(--ink); white-space: pre; overflow-x: auto; }
+        .cs-step-doc .k { color: var(--ink-2); }
+        .cs-step-doc .v { color: var(--coral-deep); }
+        .cs-step-use { background: var(--sand-2); }
+        .cs-step-use dl { display: grid; gap: 0.9rem; }
+        .cs-step-use dt { font-weight: 700; color: var(--ink); font-size: 0.98rem; }
+        .cs-step-use dd { color: var(--ink-2); font-size: 0.92rem; }
+        .cs-step-use dd b { font-family: var(--display); font-style: italic; font-weight: 800; color: var(--coral-deep); font-size: 1.15rem; }
+        .cs-flow-arrow { display: none; }
+
+        /* Turneringsdagen */
+        .cs-day { list-style: none; counter-reset: day; margin-top: 2.2rem; max-width: 760px; }
+        .cs-day li { counter-increment: day; display: grid; grid-template-columns: 3.2rem 1fr; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--night-line); color: var(--night-ink-2); }
+        .cs-day li::before { content: counter(day); font-family: var(--display); font-style: italic; font-weight: 800; font-size: 1.8rem; line-height: 1; color: var(--coral); }
+        .cs-day li strong { display: block; margin-bottom: 0.15rem; }
+
+        /* Kode */
+        .cs-code { margin: 1.4rem 0 0.6rem; border-radius: 12px; background: #070C16; border: 1px solid var(--night-line); overflow: hidden; }
+        .cs-code figcaption { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 0.6rem 1rem; font-family: var(--mono); font-size: 0.8rem; color: var(--night-ink-2); border-bottom: 1px solid var(--night-line); }
+        .cs-code figcaption a { color: var(--night-ink-2); }
+        .cs-code pre { padding: 1.1rem 1.2rem; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.65; color: #D6DCE8; }
+        .cs-code .c { color: #7C879C; }
+        .cs-code .s { color: #F6B4A9; }
+        .cs-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+
+        /* Fantasy-poeng */
+        .cs-points { margin-top: 1.4rem; display: grid; gap: 0.55rem; max-width: 560px; }
+        .cs-points div { display: grid; grid-template-columns: 9.5rem 1fr 3rem; align-items: center; gap: 0.8rem; font-size: 0.92rem; color: var(--night-ink-2); }
+        .cs-points i { display: block; height: 10px; border-radius: 5px; background: var(--coral); }
+        .cs-points b { font-family: var(--mono); font-weight: 500; color: var(--night-ink); text-align: right; }
+
+        /* Utfordringer */
+        .cs-challenges { margin-top: 2rem; }
+        .cs-challenge { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; padding: 1.6rem 0; border-bottom: 1px solid var(--night-line); }
+        .cs-challenge h3 { margin: 0; font-size: 1.1rem; }
+        .cs-challenge p { margin: 0; font-size: 0.97rem; }
+        .cs-challenge-head { padding-bottom: 0.6rem; }
+        .cs-challenge-head span { font-size: 0.85rem; color: var(--night-ink-2); }
+
+        /* Veien videre */
+        .cs-phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.2rem; }
+        .cs-phase { border-top: 3px solid var(--night-line); padding-top: 1rem; }
+        .cs-phase:first-child { border-top-color: var(--coral); }
+        .cs-phase h3 { margin: 0 0 0.5rem; font-size: 1.05rem; }
+        .cs-phase p { font-size: 0.93rem; margin: 0; }
+
+        @media (max-width: 960px) {
+            .cs-hero .cs-wrap { grid-template-columns: 1fr; }
+            .cs-phone { justify-self: start; }
+            .cs-flow { grid-template-columns: 1fr; }
+            .cs-cols { grid-template-columns: 1fr; gap: 3.5rem; }
+            .cs-phases { grid-template-columns: 1fr 1fr; }
+            .cs-gallery { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 720px) {
+            .cs section { padding: 4rem 0; }
+            .cs-arch-apps, .cs-arch-links { grid-template-columns: 1fr; gap: 0; }
+            .cs-arch-apps .cs-node + .cs-node { margin-top: 0.6rem; }
+            .cs-arch-links.is-apps { display: none; }
+            .cs-arch-mobile-link { display: block !important; }
+            .cs-apps { grid-template-columns: 1fr; }
+            .cs-app, .cs-app + .cs-app { padding: 1.6rem 0 0.4rem; border-left: none; }
+            .cs-app + .cs-app { border-top: 1px solid var(--night-line); }
+            .cs-challenge { grid-template-columns: 1fr; gap: 0.6rem; }
+            .cs-challenge-head { display: none; }
+            .cs-phases { grid-template-columns: 1fr; }
+            .cs-points div { grid-template-columns: 7.5rem 1fr 2.6rem; }
+        }
+        .cs-arch-mobile-link { display: none; }
     </style>
 </head>
 <body>
@@ -43,79 +222,300 @@
         </div>
     </header>
 
-    <main class="page-container">
-        <div class="page-header case-study-hero">
-            <h1>Spikedunk</h1>
-            <p>Case Study: Et komplett økosystem for sandvolleyball</p>
-            <div class="hobby-badge">Uoffisielt Hobbyprosjekt</div>
-        </div>
+    <main class="cs">
 
-        <div class="tech-stack-tags">
-            <span class="skill-tag">Flutter</span>
-            <span class="skill-tag">Dart</span>
-            <span class="skill-tag">Google Firebase</span>
-            <span class="skill-tag">Firestore</span>
-            <span class="skill-tag">Cloud Functions</span>
-            <span class="skill-tag">Google Antigravity</span>
-            <span class="skill-tag">Gemini AI</span>
-        </div>
-
-        <div class="case-study-content">
-            <h2>Prosjektet & Problemet</h2>
-            <p>Spikedunk er et hobbyprosjekt bygget for norsk sandvolleyball. Prosjektet er per i dag uoffisielt og appene er ikke publisert i app-butikkene, men konseptet er utviklet for å vise hvordan sporten kan gjøres enda proffere enn i dag. Tidligere har organisering av slike turneringer vært preget av manuelle prosesser: papirbaserte påmeldinger, regneark for kampoppsett, og fysiske resultattavler som må oppdateres for hånd. Dette prosjektet utforsker hvordan vi kan digitalisere og automatisere disse prosessene. Ved å gi bedre tilgjengelighet til å se stats, live-score og oppsett, demonstrerer appene hvordan man kan fjerne friksjonen for både arrangører, spillere og publikum.</p>
-
-            <div class="spikedunk-gallery">
-                <img src="./images/spikedunk-home.png" alt="Spikedunk Hjem">
-                <img src="./images/spikedunk-tourney.png" alt="Spikedunk Turnering">
-                <img src="./images/spikedunk-stats.png" alt="Spikedunk Statistikk">
-                <img src="./images/spikedunk-profile.png" alt="Spikedunk Spillerprofil">
+        <!-- Hero -->
+        <section class="cs-hero">
+            <div class="cs-wrap">
+                <div>
+                    <h1>Spikedunk</h1>
+                    <p class="cs-claim">Tre apper som tar en sandvolleyballturnering fra påmelding til resultat.</p>
+                    <p class="cs-note">Et uoffisielt hobbyprosjekt bygget i Flutter og Firebase. Appene er ikke publisert i app-butikkene. Prosjektet viser hvordan norsk sandvolleyball kan organiseres, følges og analyseres digitalt.</p>
+                    <div class="cs-repos">
+                        <a class="cs-repo" href="https://github.com/RuudyBoy/norgestouradmin" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>Admin</a>
+                        <a class="cs-repo" href="https://github.com/RuudyBoy/norgestourlivescore" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>Dommerapp</a>
+                        <a class="cs-repo" href="https://github.com/RuudyBoy/norgestourapp" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>Spillerapp</a>
+                    </div>
+                    <dl class="cs-facts">
+                        <div><dt>Apper</dt><dd>3</dd></div>
+                        <div><dt>Database</dt><dd>1</dd></div>
+                        <div><dt>Linjer Dart</dt><dd>ca. 29 000</dd></div>
+                    </dl>
+                </div>
+                <div class="cs-phone">
+                    <img src="./images/spikedunk-home.png" alt="Spillerappens hjemskjerm med live-kamper fra en turnering">
+                </div>
             </div>
+        </section>
 
-            <h2>Arkitektur & Teknologivalg</h2>
-            <p>For å bygge et skalerbart og fremtidsrettet system, falt valget på <strong>Flutter og Dart</strong> for frontend og <strong>Google Firebase</strong> (Auth, Firestore, Cloud Functions) som backend.</p>
-            <p><strong>Hvorfor Flutter?</strong> Rammeverket lar oss skrive én felles kodebase som kan kompileres nativt for både iOS, Android og Web. Dette sparer enormt med utviklingstid uten å gå på bekostning av ytelse eller brukeropplevelse.</p>
-            
-            <p><strong>Agentic Coding & Google-økosystemet:</strong> En sentral del av utviklingsmetodikken har vært bruken av <strong>Google Antigravity</strong> (drevet av <strong>Gemini</strong>) for avansert "agentic coding". Fordi hele stacken – fra Firebase og Flutter, til Gemini og Antigravity – er bygget av Google, fungerer de eksepsjonelt bra sammen. AI-agentene har en utrolig dyp, innebygd forståelse for hvordan Firebase og Flutter bør sys sammen, noe som har gjort at komplekse integrasjoner og server-side logikk har gått langt raskere enn ved tradisjonell programmering.</p>
-            
-            <h3>Hvorfor tre separate applikasjoner?</h3>
-            <p>I stedet for å bygge én gigantisk applikasjon, ble systemet delt opp i tre spesialiserte Flutter-apper som deler samme Firebase-backend:</p>
-            <ul>
-                <li><strong>Spiller-app:</strong> Spillerens portal for påmelding til turneringer, visning av kampoppsett, stats og resultater, med trygg og enkel innlogging via <strong>Google Sign-In</strong>.</li>
-                <li><strong>Admin-verktøy:</strong> Arrangørens verktøy for å opprette turneringer, generere brackets (sluttspill/puljer) og tildele kamper. Her benyttes også <strong>Firebase Cloud Functions (Node.js)</strong> for sikker server-side logikk.</li>
-                <li><strong>Livescore-tavle:</strong> En dedikert skjerm-app (tavle) som står ved banen for sanntidsvisning av poeng og kampstatus. Drevet av <strong>Firestore sine sanntids-listeners</strong>.</li>
-            </ul>
-            <p>Denne mikrotjeneste-inspirerte tilnærmingen på klient-siden gir flere arkitektoniske fordeler. Hver app har en spesifikk domenekontekst, noe som reduserer kompleksiteten i koden, minimerer app-størrelsen for sluttbrukerne, og tillater uavhengige oppdateringer av for eksempel livescore-tavlen uten å påvirke spiller-appen.</p>
-
-            <h2>Kjernefunksjonalitet</h2>
-            <p>Systemet lener seg tungt på avanserte funksjoner i Google Firebase for å levere en sømløs opplevelse:</p>
-            <ul>
-                <li><strong>Firestore Sanntidsdatabase for Livescore:</strong> Når en dommer eller funksjonær oppdaterer poengsummen i Admin-appen, lytter Livescore-appen ved banen og spiller-appene på Firestore-dokumentet. Endringene pushes umiddelbart over nettet med minimal forsinkelse.</li>
-                <li><strong>Sikker backend-logikk med Cloud Functions:</strong> Kritiske operasjoner, som generering av kampoppsett og kalkulering av avansement, utføres ikke på klienten. I stedet kaller appene Cloud Functions, som sikrer at turneringsreglene håndheves trygt på serveren.</li>
-                <li><strong>Sikkerhetsregler (Firebase Security Rules):</strong> Sikkerhet er bygget inn på databasenivå. Dette sikrer at kun turneringsadministratorer kan endre kampresultater, mens spillere kun har tilgang til sine egne data.</li>
-            </ul>
-
-            <h2>Problemløsning (Dypdykk)</h2>
-            <h3>Utfordring: Sanntidssynkronisering av poeng og tilstandshåndtering</h3>
-            <p>En av de største tekniske utfordringene var å sikre at tilstanden for en pågående kamp (poeng, sett, timeout) var 100 % synkronisert på tvers av dommerens enhet, livescore-skjermen og publikums telefoner, selv under dårlige nettverksforhold (for eksempel på en avsidesliggende strand).</p>
-            <p>For å løse dette implementerte jeg en hybrid tilstandshåndtering der kritisk state lagres i Firestore, mens optimistisk UI-oppdatering brukes på klienten (via Flutter sine state management-løsninger) for å gi umiddelbar feedback til dommeren. Ved konflikter eller nettverksbrudd sørger Firebase og Firestore sine sanntids-listeners for å resynkronisere klientens lokale tilstand mot "source of truth" i skyen.</p>
-            
-            <div class="code-snippet-placeholder">
-// Eksempel: Lytte til poengoppdateringer i sanntid med Flutter og Firestore
-StreamBuilder&lt;DocumentSnapshot&gt;(
-  stream: FirebaseFirestore.instance.collection('matches').doc(matchId).snapshots(),
-  builder: (context, snapshot) {
-    if (!snapshot.hasData) return CircularProgressIndicator();
-    
-    var matchData = snapshot.data!.data() as Map&lt;String, dynamic&gt;;
-    // Håndter oppdatering av live-score i appen
-    return ScoreBoardWidget(score: matchData['score']);
-  },
-)
+        <!-- Problemet -->
+        <section>
+            <div class="cs-wrap cs-text">
+                <h2>Problemet</h2>
+                <p class="cs-lead">Som hovedtrener i sandvolleyball ser jeg hvor mye av en turneringsdag som fortsatt skjer manuelt.</p>
+                <p>Påmeldinger samles i skjemaer og lister, kampoppsett settes opp i regneark, og resultater føres for hånd. Spillere og publikum må gå til en oppslagstavle eller vente på at noen legger ut resultater.</p>
+                <p>Spikedunk er mitt forsøk på å fjerne den friksjonen for alle tre gruppene som er på en turnering: arrangøren, dommeren og spillerne.</p>
             </div>
+        </section>
 
-            <h2>Veien Videre og Læring</h2>
-            <p>Utviklingen av Spikedunk har gitt enorm innsikt i å bygge distribuerte systemer og håndtere komplekse datamodeller relatert til idrettsarrangementer. Den viktigste lærdommen var verdien av streng databasestrukturering tidlig i prosjektet og kraften i å utnytte Firebase Cloud Functions og Security Rules for å flytte sikkerhetslogikken ut av frontend. Selv om dette foreløpig er et uoffisielt hobbyprosjekt, viste valget av Flutter og oppdelingen i tre applikasjoner seg som en stor suksess for å levere et mer profesjonelt, brukervennlig og raskt produkt-konsept til volleyball-Norge.</p>
-        </div>
+        <!-- Systemet -->
+        <section>
+            <div class="cs-wrap">
+                <div class="cs-text">
+                    <h2>Systemet på ett bilde</h2>
+                    <p>Tre Flutter-apper deler én Firestore-database. Appene snakker aldri direkte med hverandre. All data går gjennom databasen, og endringer vises i sanntid hos alle som lytter.</p>
+                </div>
+                <div class="cs-arch" role="img" aria-label="Arkitektur: Admin, Dommerapp og Spillerapp kobler seg til Firestore. En Cloud Function trigges når en kamp blir ferdig.">
+                    <div class="cs-arch-apps">
+                        <div class="cs-node"><b>Admin</b><span>Lager turneringer, lag, kamper og QR-koder</span></div>
+                        <div class="cs-node"><b>Dommerapp</b><span>Fører poeng og hver handling i kampen</span></div>
+                        <div class="cs-node"><b>Spillerapp</b><span>Viser live-resultater, statistikk og fantasy</span></div>
+                    </div>
+                    <div class="cs-arch-links is-apps">
+                        <div><span>leser og skriver</span></div>
+                        <div><span>skriver poeng og hendelser</span></div>
+                        <div><span>leser live, melder på</span></div>
+                    </div>
+                    <div class="cs-arch-links cs-arch-mobile-link"><div><span>alle tre leser og skriver</span></div></div>
+                    <div class="cs-node is-db"><b>Cloud Firestore</b><span>tournaments · categories · registrations · teams · players · matches → events · users</span></div>
+                    <div class="cs-arch-fn">
+                        <div class="cs-arch-links"><div><span>trigges når en kamp blir ferdig</span></div></div>
+                        <div class="cs-node"><b>Cloud Function: matchRunner</b><span>Flytter vinneren videre til neste kamp i sluttspillet</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Appene -->
+        <section>
+            <div class="cs-wrap">
+                <div class="cs-text">
+                    <h2>Tre apper, tre brukere</h2>
+                    <p>I stedet for én stor app fikk hver bruker sitt eget verktøy: admin kjører på web, dommerappen er en web-app som åpnes fra en QR-kode, og spillerappen er laget for mobil.</p>
+                </div>
+                <div class="cs-apps">
+                    <article class="cs-app">
+                        <h3>Admin</h3>
+                        <p class="cs-who">For arrangøren, på web</p>
+                        <ul>
+                            <li>Turneringer, klasser og påmeldinger</li>
+                            <li>Seeding etter rankingpoeng</li>
+                            <li>Puljer og hele sluttspillet generert på forhånd</li>
+                            <li>Baner og starttider per runde</li>
+                            <li>QR-kode til dommeren for hver kamp</li>
+                        </ul>
+                        <p class="cs-meta">ca. 15 500 linjer Dart og en Cloud Function i TypeScript<br><a href="https://github.com/RuudyBoy/norgestouradmin" target="_blank" rel="noopener">Se koden</a></p>
+                    </article>
+                    <article class="cs-app">
+                        <h3>Dommerapp</h3>
+                        <p class="cs-who">For dommeren, i nettleseren</p>
+                        <ul>
+                            <li>Åpnes ved å skanne QR-koden, uten innlogging</li>
+                            <li>Poeng med årsak: ess, angrep, blokk og ulike feil</li>
+                            <li>Sidebytte, teknisk timeout og settregler</li>
+                            <li>Angreknapp for siste handling</li>
+                        </ul>
+                        <p class="cs-meta">ca. 1 400 linjer Dart<br><a href="https://github.com/RuudyBoy/norgestourlivescore" target="_blank" rel="noopener">Se koden</a></p>
+                    </article>
+                    <article class="cs-app">
+                        <h3>Spillerapp</h3>
+                        <p class="cs-who">For spillere og publikum, på mobil</p>
+                        <ul>
+                            <li>Turneringer, kampprogram og live-resultater</li>
+                            <li>Statistikk per spiller, kamp og turnering</li>
+                            <li>Fantasy med lag, roller og felles poengtabell</li>
+                            <li>Innlogging og påmelding</li>
+                        </ul>
+                        <p class="cs-meta">Påmelding og lagring av fantasylag fungerer i dag bare for admin-brukere, fordi sikkerhetsreglene stopper vanlige brukere. Se utfordringer.</p>
+                        <p class="cs-meta">ca. 12 400 linjer Dart<br><a href="https://github.com/RuudyBoy/norgestourapp" target="_blank" rel="noopener">Se koden</a></p>
+                    </article>
+                </div>
+                <div class="cs-gallery">
+                    <figure><img src="./images/spikedunk-home.png" alt="Hjemskjerm med live-kamper" loading="lazy"><figcaption>Hjem med live-kamper</figcaption></figure>
+                    <figure><img src="./images/spikedunk-tourney.png" alt="Turneringsoppsett med puljer" loading="lazy"><figcaption>Puljer og sluttspill</figcaption></figure>
+                    <figure><img src="./images/spikedunk-stats.png" alt="Statistikkside med toppscorer" loading="lazy"><figcaption>Statistikk for sesongen</figcaption></figure>
+                    <figure><img src="./images/spikedunk-profile.png" alt="Spillerprofil" loading="lazy"><figcaption>Spillerprofil</figcaption></figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ett poeng blir til data -->
+        <section class="cs-sand">
+            <div class="cs-wrap">
+                <div class="cs-text">
+                    <h2>Ett poeng blir til data</h2>
+                    <p class="cs-lead" style="color: var(--ink)">Det viktigste designvalget i prosjektet: dommerappen lagrer ikke bare stillingen, men hver handling som et eget dokument.</p>
+                    <p>Stillingen på kampen er bare et sammendrag. Hendelsene under er kilden til alt annet, og det gir tre ting nesten gratis: statistikk, fantasypoeng og en angreknapp som vet nøyaktig hva som skal rulles tilbake.</p>
+                </div>
+                <div class="cs-flow">
+                    <div class="cs-step cs-step-tap">
+                        <h3>Dommeren trykker</h3>
+                        <div class="cs-tap-row"><span>ANGREP (Kill)</span><span>BLOKK POENG</span><span class="on">SERVE ESS</span><span>SERVEFEIL</span></div>
+                        <p>Et ess gir to hendelser: ett ess til serveren og én mottaksfeil til spilleren dommeren velger. Et vellykket angrep logger i tillegg legget til partneren og serven som var i spill.</p>
+                    </div>
+                    <div class="cs-step cs-step-doc">
+                        <h3>Hendelsen lagres</h3>
+<pre><span class="k">matches/{id}/events/{id}</span>
+{
+  <span class="k">action:</span>        <span class="v">"Ace"</span>,
+  <span class="k">player_id:</span>     <span class="v">"…"</span>,
+  <span class="k">point_to:</span>      <span class="v">"home"</span>,
+  <span class="k">phase:</span>         <span class="v">"Break Point"</span>,
+  <span class="k">home_score:</span>    <span class="v">12</span>,
+  <span class="k">away_score:</span>    <span class="v">9</span>,
+  <span class="k">set_number:</span>    <span class="v">1</span>,
+  <span class="k">prev_serving_team:</span> <span class="v">"home"</span>,
+  <span class="k">timestamp:</span>     <span class="v">serverTimestamp()</span>
+}</pre>
+                        <p style="font-size:0.85rem;margin:0.8rem 0 0">Feltnavnene er hentet fra koden. Verdiene er et eksempel.</p>
+                    </div>
+                    <div class="cs-step cs-step-use">
+                        <h3>Og brukes til</h3>
+                        <dl>
+                            <div><dt>Statistikk</dt><dd>Ett ess til serveren, én mottaksfeil til motstanderen</dd></div>
+                            <div><dt>Fantasy</dt><dd><b>+115</b> poeng hvis serveren er låst til rollen serv</dd></div>
+                            <div><dt>Angre</dt><dd>Poenget trekkes fra, og serveren settes tilbake fra <code>prev_serving_team</code></dd></div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- En turneringsdag -->
+        <section>
+            <div class="cs-wrap">
+                <div class="cs-text">
+                    <h2>En turneringsdag, steg for steg</h2>
+                    <p>Slik flyter data gjennom systemet fra påmelding til finale.</p>
+                </div>
+                <ol class="cs-day">
+                    <li><div><strong>Spilleren melder seg på</strong>Påmeldingen lagres med status venter, og arrangøren godtar eller setter laget på venteliste.</div></li>
+                    <li><div><strong>Lagene legges inn og seedes</strong>Arrangøren legger inn lagene i admin, og hvert lag får summen av spillernes rankingpoeng. Lagene sorteres etter den summen.</div></li>
+                    <li><div><strong>Puljer og sluttspill genereres</strong>Puljene fylles med serpentine-seeding, og hele sluttspillet lages på forhånd med plassholdere.</div></li>
+                    <li><div><strong>Baner og tider settes opp</strong>Kampene fordeles på baner og starttider runde for runde.</div></li>
+                    <li><div><strong>Dommeren skanner QR-koden</strong>Kampen åpnes i dommerappen, og dommeren velger lagfarger og serverekkefølge.</div></li>
+                    <li><div><strong>Kampen føres</strong>Hvert poeng skrives til kampen og som en hendelse. Spillerappen viser stillingen live.</div></li>
+                    <li><div><strong>Vinneren går videre</strong>Når kampen er ferdig, flytter en Cloud Function vinnerlaget inn i neste kamp.</div></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Sluttspillet -->
+        <section>
+            <div class="cs-wrap">
+                <div class="cs-cols">
+                    <div class="cs-text">
+                        <h2>Sluttspillet er en lenket graf</h2>
+                        <p>Admin genererer alle sluttspillkampene før turneringen starter. Hver kamp vet hvilken kamp vinneren skal videre til, og om laget skal inn som lag A eller lag B.</p>
+                        <p>Når dommerappen setter en kamp til ferdig, trigges Cloud Function <code>matchRunner</code>. Den kopierer vinnerlaget inn i neste kamp, og setter kampen klar når begge plassene er fylt. Funksjonen reagerer bare på selve overgangen til ferdig, så senere endringer på kampen trigger den ikke på nytt.</p>
+                        <p>Oppsettet følger reglementet til Norges Volleyballforbund: A- og B-puljer, omspill, kryssseeding og indre mot ytre pulje. Jeg brukte reglementet som kilde mens jeg bygget.</p>
+                    </div>
+                    <figure class="cs-code">
+                        <figcaption><span>functions/src/index.ts</span><a href="https://github.com/RuudyBoy/norgestouradmin/blob/main/functions/src/index.ts" target="_blank" rel="noopener">GitHub</a></figcaption>
+<pre><span class="c">// Only run on the transition to 'finished', not on subsequent writes.</span>
+if (before[<span class="s">"status"</span>] === <span class="s">"finished"</span> || after[<span class="s">"status"</span>] !== <span class="s">"finished"</span>) {
+  return;
+}
+
+<span class="c">// …</span>
+
+<span class="c">// Source prefix in THIS match (winner's data lives here).</span>
+const srcPfx = homeWins ? <span class="s">"team_a"</span> : <span class="s">"team_b"</span>;
+<span class="c">// Destination prefix in the NEXT match.</span>
+const dstPfx = nextMatchSlot === <span class="s">"a"</span> ? <span class="s">"team_a"</span> : <span class="s">"team_b"</span>;
+
+<span class="c">// …</span>
+
+if (otherTeamId &amp;&amp; otherTeamId !== <span class="s">"placeholder"</span>) {
+  updateFields[<span class="s">"status"</span>] = <span class="s">"scheduled"</span>;
+}
+
+await nextMatchRef.update(updateFields);</pre>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fantasy og design -->
+        <section>
+            <div class="cs-wrap">
+                <div class="cs-cols">
+                    <div class="cs-text">
+                        <h2>Fantasy med balanserte roller</h2>
+                        <p>I fantasy låser du hver spiller til én rolle, og spilleren gir bare poeng for handlinger i den rollen. Poengene er kalibrert slik at en gjennomsnittlig prestasjon gir omtrent 100 poeng per sett, uansett rolle.</p>
+                        <p>Derfor er sjeldne handlinger verdt mye: et ess gir mer enn fem ganger så mye som et vellykket angrep. Det er spilldesign like mye som kode.</p>
+                        <div class="cs-points" role="img" aria-label="Fantasypoeng per handling: ess 115, poenggivende blokk 75, forsvar til poeng 48, vellykket angrep 21, vellykket legg 18, vellykket mottak 11">
+                            <div><span>Serveess</span><i style="width:100%"></i><b>115</b></div>
+                            <div><span>Poenggivende blokk</span><i style="width:65%"></i><b>75</b></div>
+                            <div><span>Forsvar til poeng</span><i style="width:42%"></i><b>48</b></div>
+                            <div><span>Vellykket angrep</span><i style="width:18%"></i><b>21</b></div>
+                            <div><span>Vellykket legg</span><i style="width:16%"></i><b>18</b></div>
+                            <div><span>Vellykket mottak</span><i style="width:10%"></i><b>11</b></div>
+                        </div>
+                    </div>
+                    <div class="cs-text">
+                        <h2>Designsystem i koden</h2>
+                        <p>Med bakgrunn i UI/UX-design ville jeg at appene skulle ha et tydelig uttrykk: sand, nattblått og korall, med Saira som display-font og Schibsted Grotesk til tekst. Fargene, typografien og temaet ligger samlet i <code>lib/theme</code>, med lys og mørk modus.</p>
+                        <p>Underveis hadde appen samlet opp rundt 56 ulike farger. I repoet ligger et eget oppdrag, <code>docs/FARGEOPPRYDDING.md</code>, for å samle dem i rundt 14 faste tokens, med regler om at designet skal se likt ut etterpå. Denne siden bruker de samme fargene og fontene.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Utfordringer -->
+        <section>
+            <div class="cs-wrap">
+                <div class="cs-text">
+                    <h2>Utfordringer og hva jeg ville gjort annerledes</h2>
+                    <p>Appene fungerer i demoturneringer, men de er ikke klare for ekte brukere. Jeg har gått gjennom koden selv og funnet dette.</p>
+                </div>
+                <div class="cs-challenges">
+                    <div class="cs-challenge cs-challenge-head"><span>Utfordring</span><span>Slik er det i dag</span><span>Slik ville jeg løst det</span></div>
+                    <div class="cs-challenge">
+                        <h3>Samme logikk tre steder</h3>
+                        <p>Avansement og puljeplassering håndteres både i dommerappen, i admin og i Cloud Function. De kan skrive til de samme feltene samtidig.</p>
+                        <p>La bare Cloud Functions eie turneringslogikken. Klientene skriver bare resultatet.</p>
+                    </div>
+                    <div class="cs-challenge">
+                        <h3>Sikkerhetsreglene</h3>
+                        <p>Dommerappen har ingen innlogging, så kamper og lag er åpne for skriving. Samtidig er reglene for strenge for vanlige brukere, som blir stoppet når de skal melde seg på.</p>
+                        <p>Nye regler per rolle, en kortlivet kamp-token i QR-koden, og Firebase App Check.</p>
+                    </div>
+                    <div class="cs-challenge">
+                        <h3>Statistikk som ikke skalerer</h3>
+                        <p>Statistikk og fantasy henter alle kamper og alle hendelser og regner ut på mobilen. Spillere slås sammen på navn, ikke ID.</p>
+                        <p>Regne ut statistikken på serveren når en kamp er ferdig, og bruke spiller-ID overalt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI -->
+        <section>
+            <div class="cs-wrap cs-text">
+                <h2>Slik jobbet jeg med AI</h2>
+                <p>Mye av koden er skrevet sammen med AI-agenter, Google Antigravity med Gemini, og Claude. Jeg bestemte hva som skulle bygges, hvordan dataene skulle henge sammen og hvordan appene skulle se ut. Agentene skrev mye av implementasjonen.</p>
+                <p>Det viktigste jeg lærte er at agentene trenger tydelige rammer. De beste resultatene kom når jeg skrev oppdrag med konkrete regler, som fargeoppryddingen: ikke endre layout eller logikk, jobb én fil om gangen, og stopp og spør hvis noe ser annerledes ut. Uten slike rammer ble det fort rot, blant annet 59 engangsskript i admin-repoet som jeg senere har ryddet bort.</p>
+                <p>Derfor har jeg også gjort en egen kodegjennomgang av hele systemet og prioritert det som må fikses før appene kan tas i bruk på ordentlig.</p>
+            </div>
+        </section>
+
+        <!-- Veien videre -->
+        <section>
+            <div class="cs-wrap">
+                <div class="cs-text">
+                    <h2>Veien videre</h2>
+                    <p>Kodegjennomgangen ble til en plan i fire faser. Sikkerhet kommer først, fordi betaling og flere brukere gjør dagens åpne database til en reell risiko.</p>
+                </div>
+                <div class="cs-phases">
+                    <div class="cs-phase"><h3>1. Tett hullene</h3><p>Nye Firestore-regler med tester, eget utviklingsmiljø i Firebase og App Check.</p></div>
+                    <div class="cs-phase"><h3>2. Riktig dataflyt</h3><p>Turneringslogikk bare på serveren, ferdigberegnet statistikk og påmelding som blir til lag.</p></div>
+                    <div class="cs-phase"><h3>3. Brukere og betaling</h3><p>Innlogging for dommere, betaling med Vipps og tofaktor for arrangører.</p></div>
+                    <div class="cs-phase"><h3>4. Lansering</h3><p>Kontosletting, personvernerklæring og publisering i App Store og Google Play.</p></div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
