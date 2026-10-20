@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spikedunk | Christian J. Ruud</title>
-    <meta name="description" content="Spikedunk: tre Flutter-apper og én Firebase-database som tar en sandvolleyballturnering fra påmelding til resultat. Case study av Christian J. Ruud.">
+    <title>Turneringssystem for sandvolleyball | Christian J. Ruud</title>
+    <meta name="description" content="Turneringssystem for sandvolleyball: tre Flutter-apper og én Firebase-database som tar en sandvolleyballturnering fra påmelding til resultat. Case study av Christian J. Ruud.">
     <script src="https://kit.fontawesome.com/1f93e553eb.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@1,700;1,800&family=Schibsted+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
     <style>
-        /* Tokens hentet fra Spikedunk-appens eget designsystem (lib/theme/app_colors.dart) */
+        /* Tokens hentet fra appens eget designsystem (lib/theme/app_colors.dart) */
         .cs {
             --night: #0E1626;
             --night-2: #18233C;
@@ -61,7 +61,7 @@
         /* Hero */
         .cs-hero { padding: 4.5rem 0 5rem; }
         .cs-hero .cs-wrap { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center; }
-        .cs-hero h1 { font-size: clamp(3.6rem, 9vw, 7rem); margin-bottom: 1.2rem; }
+        .cs-hero h1 { font-size: clamp(2rem, 5.6vw, 4.6rem); hyphens: auto; margin-bottom: 1.2rem; max-width: 14ch; }
         .cs-hero .cs-claim { font-size: 1.45rem; line-height: 1.35; color: var(--night-ink); max-width: 26ch; margin-bottom: 1.4rem; }
         .cs-hero .cs-note { font-size: 0.95rem; color: var(--night-ink-2); max-width: 52ch; }
         .cs-repos { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 2rem; }
@@ -228,7 +228,7 @@
         <section class="cs-hero">
             <div class="cs-wrap">
                 <div>
-                    <h1>Spikedunk</h1>
+                    <h1>Turneringssystem for sandvolleyball</h1>
                     <p class="cs-claim">Tre apper som tar en sandvolleyballturnering fra påmelding til resultat.</p>
                     <p class="cs-note">Et uoffisielt hobbyprosjekt bygget i Flutter og Firebase. Appene er ikke publisert i app-butikkene. Prosjektet viser hvordan norsk sandvolleyball kan organiseres, følges og analyseres digitalt.</p>
                     <div class="cs-repos">
@@ -254,7 +254,7 @@
                 <h2>Problemet</h2>
                 <p class="cs-lead">Som hovedtrener i sandvolleyball ser jeg hvor mye av en turneringsdag som fortsatt skjer manuelt.</p>
                 <p>Påmeldinger samles i skjemaer og lister, kampoppsett settes opp i regneark, og resultater føres for hånd. Spillere og publikum må gå til en oppslagstavle eller vente på at noen legger ut resultater.</p>
-                <p>Spikedunk er mitt forsøk på å fjerne den friksjonen for alle tre gruppene som er på en turnering: arrangøren, dommeren og spillerne.</p>
+                <p>Prosjektet er mitt forsøk på å fjerne den friksjonen for alle tre gruppene som er på en turnering: arrangøren, dommeren og spillerne.</p>
             </div>
         </section>
 
@@ -408,7 +408,7 @@
                         <h2>Sluttspillet er en lenket graf</h2>
                         <p>Admin genererer alle sluttspillkampene før turneringen starter. Hver kamp vet hvilken kamp vinneren skal videre til, og om laget skal inn som lag A eller lag B.</p>
                         <p>Når dommerappen setter en kamp til ferdig, trigges Cloud Function <code>matchRunner</code>. Den kopierer vinnerlaget inn i neste kamp, og setter kampen klar når begge plassene er fylt. Funksjonen reagerer bare på selve overgangen til ferdig, så senere endringer på kampen trigger den ikke på nytt.</p>
-                        <p>Oppsettet følger reglementet til Norges Volleyballforbund: A- og B-puljer, omspill, kryssseeding og indre mot ytre pulje. Jeg brukte reglementet som kilde mens jeg bygget.</p>
+                        <p>Oppsettet følger reglementet for sandvolleyball: A- og B-puljer, omspill, kryssseeding og indre mot ytre pulje. Jeg brukte reglementet som kilde mens jeg bygget.</p>
                     </div>
                     <figure class="cs-code">
                         <figcaption><span>functions/src/index.ts</span><a href="https://github.com/RuudyBoy/norgestouradmin/blob/main/functions/src/index.ts" target="_blank" rel="noopener">GitHub</a></figcaption>
@@ -493,8 +493,10 @@ await nextMatchRef.update(updateFields);</pre>
         <!-- AI -->
         <section>
             <div class="cs-wrap cs-text">
-                <h2>Slik jobbet jeg med AI</h2>
-                <p>Mye av koden er skrevet sammen med AI-agenter, Google Antigravity med Gemini, og Claude. Jeg bestemte hva som skulle bygges, hvordan dataene skulle henge sammen og hvordan appene skulle se ut. Agentene skrev mye av implementasjonen.</p>
+                <h2>Min idé, med AI som verktøy</h2>
+                <p>Prosjektet er min egen idé, og hele systemet er satt opp etter mine valg: tre apper med hver sin bruker, én felles database, og hvordan dataene henger sammen fra påmelding til finale. Palett, layout og design er planlagt nøye.</p>
+                <p>Jeg er selv godt innblandet i sandvolleyball, og alle funksjonene i prosjektet er lagt til av meg ut fra det jeg ser at arrangører, dommere og spillere trenger. Hendelsesloggen, sluttspilloppsettet og de balanserte fantasyrollene kommer fra den kunnskapen.</p>
+                <p>Til selve utviklingen har jeg brukt AI som hjelp, både Claude og Gemini gjennom Google Antigravity. AI-en har hjulpet meg å skrive koden raskere, men ideene, prioriteringene og vurderingene er mine.</p>
                 <p>Det viktigste jeg lærte er at agentene trenger tydelige rammer. De beste resultatene kom når jeg skrev oppdrag med konkrete regler, som fargeoppryddingen: ikke endre layout eller logikk, jobb én fil om gangen, og stopp og spør hvis noe ser annerledes ut. Uten slike rammer ble det fort rot, blant annet 59 engangsskript i admin-repoet som jeg senere har ryddet bort.</p>
                 <p>Derfor har jeg også gjort en egen kodegjennomgang av hele systemet og prioritert det som må fikses før appene kan tas i bruk på ordentlig.</p>
             </div>
